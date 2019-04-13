@@ -11,17 +11,22 @@ export default class SliderComponent extends PureComponent {
         this.setState({
             volume: value
         })
+
+        let { handleChange } = this.props
+        handleChange && handleChange(value)
     }
 
     render() {
-        let { title, handleChange } = this.props
+        let { title, handleChangeComplete, min, max } = this.props
 
         return <div className="slider">
             <Slider
                 value={this.state.volume}
                 orientation="horizontal"
                 onChange={this.handleOnChange}
-                onChangeComplete={handleChange && (() => { handleChange(this.state.volume) })}
+                onChangeComplete={handleChangeComplete && (() => { handleChangeComplete(this.state.volume) })}
+                min={min && min}
+                max={max && max}
                 tooltip={false}
             />
             <span className="slider__subtitle">{title || 'Slider'}</span>
