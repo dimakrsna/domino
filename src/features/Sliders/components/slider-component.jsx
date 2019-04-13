@@ -4,7 +4,7 @@ import Slider from 'react-rangeslider'
 export default class SliderComponent extends PureComponent {
 
     state = {
-        volume: 0
+        volume: this.props.defaultValue || 0
     }
 
     handleOnChange = (value) => {

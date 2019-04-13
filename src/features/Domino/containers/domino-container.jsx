@@ -7,10 +7,11 @@ import { DominoItemComponent } from '../components/domino-item-component'
 class DominoContainer extends Component {
 
     render(){
-        let { dominoRotate } = this.props
+        let { dominoRotate, rotateSpeed } = this.props
 
         const styleDiv = {
-            transform: `rotate(${dominoRotate}deg)`
+            transform: `rotate(${dominoRotate}deg)`,
+            transition: `${rotateSpeed * 10}ms`
         }
 
         return <div className="domino" style={styleDiv}>
