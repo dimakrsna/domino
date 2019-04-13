@@ -7,7 +7,7 @@ import { DominoItemComponent } from '../components/domino-item-component'
 class DominoContainer extends Component {
 
     render(){
-        let { dominoRotate, rotateSpeed, scaleValue } = this.props
+        let { dominoRotate, rotateSpeed, scaleValue, currentPoints } = this.props
 
         const styleDiv = {
             transform: `rotate(${dominoRotate}deg) scale(${scaleValue / 100})`,
@@ -15,8 +15,8 @@ class DominoContainer extends Component {
         }
 
         return <div className="domino" style={styleDiv}>
-            <DominoItemComponent points={1} />
-            <DominoItemComponent points={3} />
+            <DominoItemComponent points={currentPoints[0]} />
+            <DominoItemComponent points={currentPoints[1]} />
         </div>
     }
 }
